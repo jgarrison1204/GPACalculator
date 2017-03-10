@@ -1,4 +1,5 @@
 //JSON file that contains "data" for GPA Calculator App for specific program options. Structure of file is object > array > object > array > object
+//Semester courses with Grade point values assigned to each course per option
 var semesterCourses = {
 	"mildModerate" : [{
 		"prerequites" : [
@@ -140,8 +141,7 @@ var semesterCourses = {
 		]
 	}]
 };
-
-// Need to fill in.
+//Quater courses with Grade point values assigned to each course per option
 var quaterCourses = {
 	"mildModerate" : [{
 		"prerequites" : [
@@ -287,6 +287,7 @@ var quaterCourses = {
 		]
 	}]
 };
+//GPA values for letter grades.
 var grades = [
    { "value": "A", "data": 4.0 },
    { "value": "A-", "data": 3.7 },
