@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- responsive enabled -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GPA Calculator | Credentials</title>
+	<!-- bootstrap framework 3.3.7 -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  	<!-- style sheet double to check to make sure it follows bootstrap-->
+  	<link rel="stylesheet" href="css/styles.css">
+  	<!-- jQuery for bootstrap -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<!-- js for bootstrap -->
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<!-- use for remove icon -->
+	<script src="https://use.fontawesome.com/303bcd2469.js"></script>
+</head>
+<body>
+	<!-- wrapper for for image and  -->
+	<header id="title-wrapper" class="container-fluid">
+		<img id="ccoe-logo" src="images/ccoeLogo.png" alt="Charter College of Education logo">
+		<!--Pipe in specialization name for selected to #specialization-->
+		<h1 id="title">GPA Calculator: <span id="specialization">Teaching Credential</span></h1>
+	</header>
+	<main class="container">
+	<!-- bootstrap button group that holds all options. On click will render all courses for that option.  Values attribute will be used to retrive -->
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary">
+				<input type="radio" name="options" id="option1" autocomplete="off" value="mildModerate"> Mild Moderate
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="options" id="option2" autocomplete="off" value="moderateSevere"> Moderate Severe
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="options" id="option3" autocomplete="off" value="earlyChildhood"> Early Childhood
+			</label>		
+			<label class="btn btn-primary">
+				<input type="radio" name="options" id="option4" autocomplete="off" value="orientationMobility"> Orientation &amp; Mobility
+			</label>		
+			<label class="btn btn-primary">
+				<input type="radio" name="options" id="option5" autocomplete="off" value="visualImpairments"> Visual Impairments
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="options" id="option6" autocomplete="off" value="physicalHealthImpairments"> Phyiscal Health Impairments
+			</label>
+		</div>
+		<!-- Displays GPA -->
+		<h1 id="gpa-wrapper">This student's GPA is: <span id="gpa"></span></h1>
+		<section id="render-wrapper">
+			<!-- Section for all prerecs. Most options have at least 1. Will need to hide if option does not have any.-->
+			<div id="prerequite" class="course-section">
+				<header class="course-section">
+					<h3><b>Prerequsite</b></h3>
+				</header>
+				<section id="title-container" class="row">
+					<span class="col-sm-1"></span>
+					<article class="col-sm-4">
+						<h4 class="input-title">Courses</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="calculated-title">GPA Units</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="input-title">Grade</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="calculated-title">Grade Value</h4>
+					</article>
+				</section>
+			</div>
+			<!-- Section for all core recs. All options have these.-->
+			<div id="core-requirements" class="course-section">
+				<header>
+					<h3><b>Core Requirements</b></h3>
+				</header>
+				<section id="title-container" class="row">
+					<span class="col-sm-1"></span>
+					<article class="col-sm-4">
+						<h4 class="input-title">Courses</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="calculated-title">GPA Units</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="input-title">Grade</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="calculated-title">Grade Value</h4>
+					</article>
+				</section>
+			</div>
+			<!-- Section for all specialization recs. All options have these.-->
+			<div id="specialization-requirements" class="course-section">
+				<header class="course-section">
+					<h3><b>Specialization Requirements</b></h3>
+				</header>
+				<section id="title-container" class="row">
+					<span class="col-sm-1"></span>
+					<article class="col-sm-4">
+						<h4 class="input-title">Courses</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="calculated-title">GPA Units</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="input-title">Grade</h4>
+					</article>
+					<article class="col-sm-2">
+						<h4 class="calculated-title">Grade Value</h4>
+					</article>
+				</section>
+			</div>
+		</section>
+	</main>
+<!-- json where course data and GPA units are stored. -->
+<script src="js/data.js"></script>	
+</body>
+</html>
