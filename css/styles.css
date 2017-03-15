@@ -1,3 +1,4 @@
+@import url('media.queries.css');
 body {
 	font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
@@ -83,6 +84,11 @@ i:hover {
 	text-align: left;
 	margin-bottom: 1%;
 }
+.btn-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 /*css taken from jQuery plug-in easy autocomplete*/
 .autocomplete-suggestions { 
 	border: 1px solid #999; background: #FFF; overflow: auto; 
@@ -102,3 +108,9 @@ i:hover {
 .autocomplete-group strong { 
 	display: block; border-bottom: 1px solid #000; 
 }
+
+/*@media screen and (max-width: 500px) {
+	#title-wrapper {
+		color: pink;
+	}
+} */ 
