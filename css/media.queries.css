@@ -9,4 +9,8 @@
 	#title-container {
 		display: none;
 	}
+	.course-section > .row {
+		margin-right: 0px;
+		margin-left: 0px;
+	}
 }  

@@ -22,13 +22,17 @@ function render(){
 		    	// Adds class with the name of the section to be able to filter for Quater Courses on focus. Repeats for all inputs with 'course-id'
 		    	$('input.course-id').addClass(sections[0]);
 		    	$('article.col-sm-4').addClass('col-xs-7');
-		    	$('article.col-sm-2').addClass('col-xs-3');
+		    	$('article.col-sm-2').addClass('col-xs-4');
 		    } else if (elementSections === sections[1]) {
 		    	$("#core-requirements").append(courseTemplate);
 		    	$('input.course-id').addClass(sections[1]);
+		    	$('article.col-sm-4').addClass('col-xs-7');
+		    	$('article.col-sm-2').addClass('col-xs-4');
 		    } else {
 		    	$("#specialization-requirements").append(courseTemplate);
 		    	$('input.course-id').addClass(sections[2]);
+		    	$('article.col-sm-4').addClass('col-xs-7');
+		    	$('article.col-sm-2').addClass('col-xs-4');
 		  	}
 		  	// adding in font awesome icon to delete course if not needed.
 		    $("section span i").addClass("fa fa-times-circle remove");
