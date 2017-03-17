@@ -8,9 +8,9 @@ var courseTemplate = "<section id="+"course-wrapper"+" class="+'row'+"><span cla
 // called on click of any of the group button options
 function render(){
 	// keeps the clicked button highlighted after page reloads
-	$('input[value='+data+']').parent().addClass('active');
+	$('input[id='+data+']').parent().addClass('active');
 	// pipes in text content from the button group of active button into specialization span.
-	let specializationTitle = $('input[value='+data+']').parent()[0].textContent;
+	let specializationTitle = $('input[id='+data+']').parent()[0].textContent;
 	$('#specialization').html(specializationTitle);
 	// loop through sections and renders courses to page by appending courseTemplate to correct section based on length of array from json data.js file.
 	$.each(sections, function(indexSections, elementSections){
@@ -107,7 +107,7 @@ function render(){
 var data = sessionStorage.getItem('filter');
 // sets filter to the value of the input the user is focused on. Value attribute for inputs are set to first property of semester and quater objects in JSON file. 
 $("input[name=options]").focus(function(){
-	let filter = this.value;
+	let filter = this.id;
 	sessionStorage.setItem('filter', filter);
 	// reloads the page to clear all
 	location.reload();

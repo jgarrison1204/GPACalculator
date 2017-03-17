@@ -1,7 +1,16 @@
-@media only screen and (max-width: 500px) {
-	#prerequite > .course-section {
+@media only screen and (max-width: 610px) {
+	h3 {
+		margin-top: 1%;
+	}
+	div[class^="course-section"] {
 		text-align: center;
-		margin-bottom: 1%;
+		margin-bottom: 1%;	
+	}
+	.section-title {
+		font-size: 1.3em;
+	}
+	#ccoe-logo {
+		display: none;
 	}
 	.row > div.col-sm-2 {
 		display: none;
@@ -9,8 +18,44 @@
 	#title-container {
 		display: none;
 	}
+	#title-wrapper {
+		min-height: 75px;
+		font-weight: bold;
+	}
+	#title {
+		font-size: 1.3em;
+	}
+	#button-group {
+		display: none;
+	}
+	#dropdown-group {
+		margin-top: 2%;
+	}
+	#gpa-wrapper {
+		margin-top: 1%;
+		font-size: 1.3em;
+	}
 	.course-section > .row {
 		margin-right: 0px;
 		margin-left: 0px;
 	}
-}  
+}
+@media only screen and (min-width: 611px) {
+	#title-wrapper {
+		min-height: 100px;
+	}
+	#dropdown-group {
+		display: none;
+	}
+	#button-group {
+		display: flex;
+	}
+	.dropdown-menu {
+		text-align: center;
+	}
+}
+@media only screen and (min-width: 611px) and (max-width: 769px) {
+	#ccoe-logo {
+		display: none;
+	}
+}

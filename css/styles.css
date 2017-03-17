@@ -12,11 +12,10 @@ i:hover {
 	left: 0;
 }
 #title-wrapper {
-	min-height: 100px;
 	margin-bottom: 2%; 
 	text-align: center;
 	background-color: lightgray;
-	color: white; 
+	color: black; 
 }
 #title {
 	line-height: 1.5em;
@@ -89,6 +88,16 @@ i:hover {
 	flex-wrap: wrap;
 	justify-content: center;
 }
+.responsive-btn {
+	width: 100%;
+	border: 1px solid gold;
+	background-color: black;
+	color: white;
+}
+input.responsive-btn:hover {
+	background-color: darkgray;
+	color: gold;
+}
 /*css taken from jQuery plug-in easy autocomplete*/
 .autocomplete-suggestions { 
 	border: 1px solid #999; background: #FFF; overflow: auto; 
@@ -108,9 +117,3 @@ i:hover {
 .autocomplete-group strong { 
 	display: block; border-bottom: 1px solid #000; 
 }
-
-/*@media screen and (max-width: 500px) {
-	#title-wrapper {
-		color: pink;
-	}
-} */ 
