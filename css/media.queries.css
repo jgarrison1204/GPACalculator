@@ -45,7 +45,7 @@
 		min-height: 100px;
 	}
 	#dropdown-group {
-		display: none;
+		/*display: none;*/
 	}
 	#button-group {
 		display: flex;

@@ -83,10 +83,23 @@ i:hover {
 	text-align: left;
 	margin-bottom: 1%;
 }
-.btn-group {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+/*overwrite default bootstrap for btn, btn focus and dropdown-menu*/
+.btn {
+	background-color: black;
+	border: 1px solid gold;
+	color: gold;
+	width: 100%;
+	max-width: 375px;
+}
+.btn:hover, .btn.focus, .btn:focus {
+	color: white;
+	background-color: darkgrey;
+}
+.dropdown-menu {
+	right: 0px;
+	left: 0px;
+	margin: 0 auto;
+	max-width: 375px;
 }
 .responsive-btn {
 	width: 100%;
