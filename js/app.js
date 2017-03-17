@@ -1,5 +1,5 @@
 // using some ES6; turned on struct mode for let.
-// "use strict";
+"use strict";
 // sections array to filter which section should be rendered. 
 var sections = ["prerequites", "coreRequirements", "specializationRequirements"];
 // Template for all courses that are rendered
