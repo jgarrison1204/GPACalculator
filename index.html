@@ -26,29 +26,9 @@
 		<h2 id="title">GPA Calculator: <span id="specialization">Teaching Credential</span></h2>
 	</header>
 	<main class="container">
-	<!-- bootstrap button group that holds all options. On click will render all courses for that option.  Values attribute will be used to retrive -->
-		<div id="button-group" class="btn-group" data-toggle="buttons">
-			<label class="btn btn-primary">
-				<input type="radio" name="options" id="mildModerate" autocomplete="off" value="mildModerate"> Mild Moderate
-			</label>
-			<label class="btn btn-primary">
-				<input type="radio" name="options" id="moderateSevere" autocomplete="off" value="moderateSevere"> Moderate Severe
-			</label>
-			<label class="btn btn-primary">
-				<input type="radio" name="options" id="earlyChildhood" autocomplete="off" value="earlyChildhood"> Early Childhood
-			</label>		
-			<label class="btn btn-primary">
-				<input type="radio" name="options" id="orientationMobility" autocomplete="off" value="orientationMobility"> Orientation &amp; Mobility
-			</label>		
-			<label class="btn btn-primary">
-				<input type="radio" name="options" id="visualImpairments" autocomplete="off" value="visualImpairments"> Visual Impairments
-			</label>
-			<label class="btn btn-primary">
-				<input type="radio" name="options" id="physicalHealthImpairments" autocomplete="off" value="physicalHealthImpairments"> Phyiscal Health Impairments
-			</label>
-		</div>
+	<!-- bootstrap dropdown group that holds all options. On click will render all courses for that option.  Values attribute will be used to retrive -->
 		<div id="dropdown-group" class="dropdown">
-		  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		    Select Option
 		    <span class="caret"></span>
 		  </button>
