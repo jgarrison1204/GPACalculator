@@ -44,12 +44,6 @@
 	#title-wrapper {
 		min-height: 100px;
 	}
-	#dropdown-group {
-		/*display: none;*/
-	}
-	#button-group {
-		display: flex;
-	}
 	.dropdown-menu {
 		text-align: center;
 	}
