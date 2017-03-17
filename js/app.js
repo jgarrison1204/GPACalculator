@@ -81,8 +81,12 @@ function render(){
 				$(this).autocomplete({
 				    lookup: grades,
 				    onSelect: function (suggestion) {
-						$(this).parent().next().children().html(suggestion.data);
-						sumUnits();
+						let gpaPoints = $(this).parent().next().children().html(suggestion.data);
+						let courseIdForCalc = $(this).parent().siblings();
+						let test = $(courseIdForCalc).find('input.course-id').val();
+						console.log(test)
+
+						sumUnits(gpaPoints);
 				    }
 				});	
 			}
@@ -113,10 +117,11 @@ $("input[name=options]").focus(function(){
 // re-render the page with data now set to the value of clicked button.
 render();
 // Invoked everytime user enters a grade. Only renders final GPA once all grades have been enter.  Will refactor sunUnits, gpaCalc if needed. Code works as follows: returns 2 arrays of (1) all GPA units and (2) grades entered.  GPA units is filled on render. The gradesAry is filled one value at a time by user entering grade. Patterned this way because oringially though of adding courses one by one with click button.
-function sumUnits () {
+function sumUnits (inputGrade) {
 	// Empty arrays that will return entered grade values and untis for calculation.
 	let unitsAry = [];
 	let gradesAry = [];
+	console.log(inputGrade);
 	let returnedUnits = document.querySelectorAll('.units');
 	let returnedGrades = document.querySelectorAll('.grade-units');
 	//Returns the sum of all gpa elibilble units taken
