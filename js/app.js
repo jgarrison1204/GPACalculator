@@ -7,10 +7,8 @@ var courseTemplate = "<section id="+"course-wrapper"+" class="+'row'+"><span cla
 
 // called on click of any of the group button options
 function render(){
-	// keeps the clicked button highlighted after page reloads
-	$('input[id='+data+']').parent().addClass('active');
-	// pipes in text content from the button group of active button into specialization span.
-	let specializationTitle = $('input[id='+data+']').parent()[0].textContent;
+	// pipes in text content from the dropdown-button group of selected button into specialization span.
+	let specializationTitle = $('input[id='+data+']')[0].value;
 	$('#specialization').html(specializationTitle);
 	// loop through sections and renders courses to page by appending courseTemplate to correct section based on length of array from json data.js file.
 	$.each(sections, function(indexSections, elementSections){
