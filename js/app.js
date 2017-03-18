@@ -92,11 +92,18 @@ function render(){
 		});
 		$('input').focus(function(){
 			let ogValue = $(this).val();
-			if ($(this).hasClass('course-id')) {
+			if ($(this).hasClass('grade') && $(this).val()) {
 				$(this).blur(function(){
-					if (ogValue != $(this).val()) {
-						let unitsId = $(this).parent().next().children()[0].id;
-						$(this).parent().next().children()[0];
+					if (!$(this).val()) {
+						let objectToRemove = $(this).parent().next().children()[0].id;
+						delete unitsObj[objectToRemove];
+						delete gradesObj[objectToRemove];
+						delete unitsObj[undefined];
+						delete gradesObj[undefined];
+						console.log("units:", unitsObj, "grades:", gradesObj);
+						sumUnitsAfterGradeDelete(gradesObj, unitsObj);
+				// 		let unitsId = $(this).parent().next().children()[0].id;
+				// 		$(this).parent().next().children()[0];
 					}
 				})
 			}
@@ -138,6 +145,10 @@ function sumUnits (inputGrade, inputCourse) {
 	gpaCalc(unitsObj, gradesObj);
 }
 
+function sumUnitsAfterGradeDelete (newInputGrade, newInputCourse) {
+	gpaCalc(newInputCourse, newInputGrade);
+}
+
 function gpaCalc(units, grades) {
 	let totalUnits = 0;
 	let totalGpaUnits = 0;
@@ -150,6 +161,8 @@ function gpaCalc(units, grades) {
 	let gpa = totalGpaUnits/totalUnits;
 	if (!isNaN(gpa)) {
 		return $("#gpa").html(gpa.toFixed(2));
+	} else {
+		return $("#gpa").html(0);
 	}
 }
 //hide prerequite if option has no prereqs.  This has to be called after render has been called.
@@ -173,6 +186,3 @@ gradesArray.forEach(function(e,i) {
 	$(e).attr('id', counterId);
 })
 
-function runSomeShit() {
-	console.log(nodesArray);
-}
