@@ -74,6 +74,7 @@ function render(){
 				    onSelect: function (suggestion) {
 				    	// sets the GPA units from json.
 						$(this).parent().next().children().html(suggestion.data);
+						sumUnits();
 				    }
 				});
 			// Sets autocomplete lookup value to the grades object in data.js
@@ -83,8 +84,8 @@ function render(){
 				    onSelect: function (suggestion) {
 						$(this).parent().next().children().html(suggestion.data);
 						// Explicit coerion from sting to number.
-						let gpaPointsForCalc = +suggestion.data;
-						let courseIdForCalc = +$(this).parent().siblings().find('span.units')[0].textContent;
+						let gpaPointsForCalc = suggestion.data;
+						let courseIdForCalc = $(this).parent().siblings().find('span.units')[0];
 						sumUnits(gpaPointsForCalc, courseIdForCalc);
 				    }
 				});	
@@ -93,9 +94,10 @@ function render(){
 		$('input').focus(function(){
 			let ogValue = $(this).val();
 			if ($(this).hasClass('course-id')) {
-				$(this).keyup(function(){
+				$(this).blur(function(){
 					if (ogValue != $(this).val()) {
-						console.log(ogValue, $(this).val());
+						let unitsId = $(this).parent().next().children()[0].id;
+						console.log($(this).parent().next().children()[0]);
 					}
 				})
 			}
@@ -128,14 +130,18 @@ render();
 
 // Empty arrays that will return entered grade values and untis for calculation.
 let unitsAry = [];
+let unitsObj = {};
 let gradesAry = [];
+
 // Invoked everytime user enters a grade. Only renders final GPA once all grades have been enter.  Will refactor sunUnits, gpaCalc if needed. Code works as follows: returns 2 arrays of (1) all GPA units and (2) grades entered.  GPA units is filled on render. The gradesAry is filled one value at a time by user entering grade. Patterned this way because oringially though of adding courses one by one with click button.
 function sumUnits (inputGrade, inputCourse) {
+	unitsObj[inputCourse.id] = +inputCourse.textContent;
 	unitsAry.push(inputCourse);
 	gradesAry.push(inputGrade);
-	console.log(unitsAry);
+	console.log(unitsObj)
 	gpaCalc(unitsAry, gradesAry);
 }
+console.log(unitsObj)
 
 function gpaCalc(units, grades) {
 	let totalUnits = 0;
@@ -155,3 +161,16 @@ function gpaCalc(units, grades) {
 		$('#prerequite').hide();
 	}
 })();
+
+
+var nodesArray = [].slice.call(document.querySelectorAll('span.units'));
+nodesArray.forEach(function(e,i) {
+	let counterId = i;
+	counterId++;
+	$(e).attr('id', counterId);
+})
+console.log(nodesArray);
+function runSomeShit() {
+	nodesArray;
+}
+

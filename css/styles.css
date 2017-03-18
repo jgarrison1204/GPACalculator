@@ -84,7 +84,7 @@ i:hover {
 	margin-bottom: 1%;
 }
 /*overwrite default bootstrap for btn, btn focus and dropdown-menu*/
-.btn {
+.btn-dropdown {
 	background-color: black;
 	border: 1px solid gold;
 	color: gold;

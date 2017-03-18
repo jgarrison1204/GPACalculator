@@ -44,6 +44,9 @@
 	#title-wrapper {
 		min-height: 100px;
 	}
+	#calculate-gpa, #dropdownMenu2 {
+		margin-bottom: 2%;
+	}
 	.dropdown-menu {
 		text-align: center;
 	}
@@ -51,5 +54,8 @@
 @media only screen and (min-width: 611px) and (max-width: 769px) {
 	#ccoe-logo {
 		display: none;
+	}
+	#calculate-gpa, #dropdownMenu2 {
+		margin-bottom: 2%;
 	}
 }

@@ -26,9 +26,10 @@
 		<h2 id="title">GPA Calculator: <span id="specialization">Teaching Credential</span></h2>
 	</header>
 	<main class="container">
+<!-- 	<button class="btn btn-primary" type="button" id="calculate-gpa" aria-haspopup="true" aria-expanded="false">Calculate GPA</button> -->
 	<!-- bootstrap dropdown group that holds all options. On click will render all courses for that option.  Values attribute will be used to retrive -->
 		<div id="dropdown-group" class="dropdown">
-		  <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  <button class="btn-dropdown dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		    Select Option
 		    <span class="caret"></span>
 		  </button>
@@ -42,7 +43,7 @@
 		  </div>
 		</div>
 		<!-- Displays GPA -->
-		<h1 id="gpa-wrapper">This student's GPA is: <span id="gpa"></span></h1>
+		<h1 id="gpa-wrapper" class="col-sm-12">This student's GPA is: <span id="gpa"></span></h1>
 		<section id="render-wrapper">
 			<!-- Section for all prerecs. Most options have at least 1. Will need to hide if option does not have any.-->
 			<div id="prerequite" class="course-section">
