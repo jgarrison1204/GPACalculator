@@ -12,7 +12,7 @@ function render(){
 	$('#specialization').html(specializationTitle);
 	// loop through sections and renders courses to page by appending courseTemplate to correct section based on length of array from json data.js file.
 	$.each(sections, function(indexSections, elementSections){
-		// Returns the courses and GPA course units to render on click. Data is the variable with a value returned from session storage variable filter. elementSections pipes in the section from the sections array.
+		// Returns the courses and GPA course units to render on click. Data is the variable with a value returned from session storage variable filter. elementSections pipes in the section from the section array.
 		let optionToRender = semesterCourses[data][0][elementSections];
 		for (let i = 0; i < optionToRender.length; i++) {
 		    if (elementSections === sections[0]) {
@@ -81,16 +81,25 @@ function render(){
 				$(this).autocomplete({
 				    lookup: grades,
 				    onSelect: function (suggestion) {
-						let gpaPoints = $(this).parent().next().children().html(suggestion.data);
-						let courseIdForCalc = $(this).parent().siblings();
-						let test = $(courseIdForCalc).find('input.course-id').val();
-						console.log(test)
-
-						sumUnits(gpaPoints);
+						$(this).parent().next().children().html(suggestion.data);
+						// Explicit coerion from sting to number.
+						let gpaPointsForCalc = +suggestion.data;
+						let courseIdForCalc = +$(this).parent().siblings().find('span.units')[0].textContent;
+						sumUnits(gpaPointsForCalc, courseIdForCalc);
 				    }
 				});	
 			}
 		});
+		$('input').focus(function(){
+			let ogValue = $(this).val();
+			if ($(this).hasClass('course-id')) {
+				$(this).keyup(function(){
+					if (ogValue != $(this).val()) {
+						console.log(ogValue, $(this).val());
+					}
+				})
+			}
+		})
 		// focuses on first empty input.
 		$('input').each(function(){
 			if($(this).val() === ''){
@@ -116,29 +125,15 @@ $("input[name=options]").focus(function(){
 });
 // re-render the page with data now set to the value of clicked button.
 render();
+
+// Empty arrays that will return entered grade values and untis for calculation.
+let unitsAry = [];
+let gradesAry = [];
 // Invoked everytime user enters a grade. Only renders final GPA once all grades have been enter.  Will refactor sunUnits, gpaCalc if needed. Code works as follows: returns 2 arrays of (1) all GPA units and (2) grades entered.  GPA units is filled on render. The gradesAry is filled one value at a time by user entering grade. Patterned this way because oringially though of adding courses one by one with click button.
-function sumUnits (inputGrade) {
-	// Empty arrays that will return entered grade values and untis for calculation.
-	let unitsAry = [];
-	let gradesAry = [];
-	console.log(inputGrade);
-	let returnedUnits = document.querySelectorAll('.units');
-	let returnedGrades = document.querySelectorAll('.grade-units');
-	//Returns the sum of all gpa elibilble units taken
-	returnedUnits.forEach(function(element, i){
-		let units = element.textContent;
-		let unitsToNumber = parseInt(units);
-		if (!isNaN(unitsToNumber)) {
-			unitsAry.push(unitsToNumber);
-		}
-	});	
-	returnedGrades.forEach(function(element, i){
-		let gpaUnits = element.textContent;
-		let gpaUnitsToNumber = parseFloat(gpaUnits);
-		if (!isNaN(gpaUnitsToNumber)) {
-			gradesAry.push(gpaUnitsToNumber);
-		}
-	});
+function sumUnits (inputGrade, inputCourse) {
+	unitsAry.push(inputCourse);
+	gradesAry.push(inputGrade);
+	console.log(unitsAry);
 	gpaCalc(unitsAry, gradesAry);
 }
 
