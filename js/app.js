@@ -95,15 +95,17 @@ function render(){
 			if ($(this).hasClass('grade') && $(this).val()) {
 				$(this).blur(function(){
 					if (!$(this).val()) {
+						// captures the value of the property (id) we want to remove from the calculation objects. 
 						let objectToRemove = $(this).parent().next().children()[0].id;
+						// removes the entered grade value (e.g. 4.0) on the page.
+						let textContentToRemove = $(this).parent().next().children().empty();
+						// deletes the selected key value pair from the units and grades objects
 						delete unitsObj[objectToRemove];
 						delete gradesObj[objectToRemove];
+						// Result of delete method leaves undefined in property index of deleted key value. Not sure why... Deletes the undefined proproties and values in calculation objects 
 						delete unitsObj[undefined];
-						delete gradesObj[undefined];
-						console.log("units:", unitsObj, "grades:", gradesObj);
+						delete gradesObj[undefined];						
 						sumUnitsAfterGradeDelete(gradesObj, unitsObj);
-				// 		let unitsId = $(this).parent().next().children()[0].id;
-				// 		$(this).parent().next().children()[0];
 					}
 				})
 			}
