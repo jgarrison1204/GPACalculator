@@ -110,15 +110,21 @@ function render(){
 		})
 		// focuses on first empty input.
 		$('input').each(function(){
-			if($(this).val() === ''){
+			if(!$(this).val()){
 				this.focus();
 				return false;
 			}
 		});
 		// remove a course.
 		$(".remove").click(function(){
+			let objectToRemove = $(this).parent().next().next().children()[0].id;
+			console.log(objectToRemove);
+			delete unitsObj[objectToRemove];
+			delete gradesObj[objectToRemove];
+			delete unitsObj[undefined];
+			delete gradesObj[undefined];
+			sumUnitsAfterGradeDelete(gradesObj, unitsObj);
 			$(this).parent().parent().remove();
-			sumUnits();
 		});
 	});
 }	
