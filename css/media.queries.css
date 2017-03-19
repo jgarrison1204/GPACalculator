@@ -44,7 +44,7 @@
 	#title-wrapper {
 		min-height: 100px;
 	}
-	#calculate-gpa, #dropdownMenu2 {
+	#calculate-gpa {
 		margin-bottom: 2%;
 	}
 	.dropdown-menu {
@@ -55,7 +55,7 @@
 	#ccoe-logo {
 		display: none;
 	}
-	#calculate-gpa, #dropdownMenu2 {
+	#calculate-gpa {
 		margin-bottom: 2%;
 	}
 }
