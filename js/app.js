@@ -120,7 +120,6 @@ function render(){
 		// remove a course.
 		$(".remove").click(function(){
 			let objectToRemove = $(this).parent().next().next().children()[0].id;
-			console.log(objectToRemove);
 			delete unitsObj[objectToRemove];
 			delete gradesObj[objectToRemove];
 			delete unitsObj[undefined];
@@ -156,7 +155,7 @@ gradesArray.forEach(function(e,i) {
 	$(e).attr('id', counterId);
 })
 
-// Empty arrays that will return entered grade values and untis for calculation.
+// Empty objects that will return entered grade values and untis for calculation.
 let unitsObj = {};
 let gradesObj = {};
 
