@@ -42,16 +42,20 @@ function render(){
 		// New array with elements copied from the nodes array returned from querySelectorAll so we can envoke array methods on items.
 		var coursesArray = [].slice.call(document.querySelectorAll('input.course-id'));
 		//Return values of semester courses from selected option (button click or value of data) to extract correct courses and units. 
-		let courseNumber = Object.values(semesterCourses[data][0]);
+		let courseNumber = semesterCourses[data][0];
+		let courseNumberAry = [];
+		$.each(courseNumber, function(k, v) {
+			courseNumberAry.push(v);
+		});
 		//hold all courses for selected option.
 		var coursesByOption = [];
 		//hold all GPAUnits for selected option.
 		var unitsByOption = [];
 		// push all courses and units into coursesByOption and  untisByOPtions Array.
-		courseNumber.forEach(function(e, i) {
-			e.forEach(function(nestArryElement, nestArryIndex) {
-				coursesByOption.push(nestArryElement.value);
-				unitsByOption.push(nestArryElement.data);
+		courseNumberAry.forEach(function(e, i) {
+			e.forEach(function(nestAryElement, nestAryIndex) {
+				coursesByOption.push(nestAryElement.value);
+				unitsByOption.push(nestAryElement.data);
 			});
 		});
 		// 
@@ -132,7 +136,7 @@ function render(){
 // Variable to access sessionStorage
 var data = sessionStorage.getItem('filter');
 // sets filter to the value of the input the user is focused on. Value attribute for inputs are set to first property of semester and quater objects in JSON file. 
-$("input[name=options]").focus(function(){
+$("input[name=options]").click(function(){
 	let filter = this.id;
 	sessionStorage.setItem('filter', filter);
 	// reloads the page to clear all
@@ -173,8 +177,14 @@ function sumUnitsAfterGradeDelete (newInputGrade, newInputCourse) {
 function gpaCalc(units, grades) {
 	let totalUnits = 0;
 	let totalGpaUnits = 0;
-	let unitsAry = Object.values(units);
-	let gradesAry = Object.values(grades);
+	let unitsAry = [];
+	let gradesAry = [];
+	$.each(grades, function(k, v) {
+		gradesAry.push(v);
+	})
+	$.each(units, function(k, v) {
+		unitsAry.push(v);
+	})
 	for (var i = 0; i < unitsAry.length; i++) {
 		totalGpaUnits += (unitsAry[i] * gradesAry[i]); 
 		totalUnits += unitsAry[i];
